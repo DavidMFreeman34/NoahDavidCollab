@@ -1,3 +1,4 @@
+#import some libraries
 from cycler import cycler
 import numpy as np
 import matplotlib.pyplot as plt
