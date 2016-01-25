@@ -41,8 +41,8 @@ def DrawFigure(triangles):
         else:
             tri_patch=PathPatch(tri,facecolor='#66CCFF',edgecolor='#666666',linewidth=0.8)
         plt.gca().add_patch(tri_patch)
-    plt.show()
-
+    # plt.show()
+    plt.savefig("exports/" + os.path.basename(__file__) + ".png", format='png')
 
 triangles = []
 A=np.array([0,0])
