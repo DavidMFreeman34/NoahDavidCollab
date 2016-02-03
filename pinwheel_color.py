@@ -1,6 +1,7 @@
 #-----------------------------------------
 
 # Python + matplotlib + numpy + mpmath
+# Created by David Freeman (2016) with consultation from Noah Weaver
 # Modified from http://www.bubuko.com/infodetail-911894.html
 
 #-----------------------------------------
@@ -11,11 +12,10 @@ import numpy as np
 from matplotlib.path import Path
 from matplotlib.patches import PathPatch
 from mpmath import *
-from decimal import Decimal
 
-plt.figure(figsize=(1.4,1.4),dpi=500)
+plt.figure(figsize=(2,1.4),dpi=500)
 plt.subplot(aspect='equal')
-plt.axis([0,1,0,0.8])
+plt.axis([0,1,0,1])
 plt.xticks([])
 plt.yticks([])
 plt.axis('off')
@@ -25,7 +25,7 @@ p = input('Enter the value of p: ')
 q = input('Enter the value of q: ')
 m = input('Enter number of divisions: ')
 r = max(p,q)
-
+filename = 'pinwheel(%s,%s,%s).pdf' %(p,q,m)
 
 # Now we calculate the proportions of the triangles based on (p,q). The number b provides
 # the base of a triangle, and the number a provides the height. The hypotenuse equals 1.
@@ -96,6 +96,8 @@ def DrawFigure(triangles):
         	if round(size,5) == round(final_sizes[i],5):
         		tri_patch=PathPatch(tri,facecolor=cmap(i/float(r)),edgecolor='#000000',joinstyle='round',linewidth=0.1)
         		plt.gca().add_patch(tri_patch)
+    plt.savefig(filename, format='pdf')
     plt.show()
+
 
 DrawFigure(triangles)
